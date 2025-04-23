@@ -189,21 +189,22 @@
       
       <script>
          document.querySelector('.send_btn').addEventListener('click', function(e) {
-            e.preventDefault(); // Evita que el formulario se envíe normalmente
+            e.preventDefault(); // Previene el envío normal del formulario
          
             const nombre = document.querySelector('input[name="Name"]').value.trim();
             const mensaje = document.querySelector('input[placeholder="Mensaje"]').value.trim();
          
             if (nombre && mensaje) {
-               const texto = `Hola, soy ${nombre}. ${mensaje}`;
-               const numero = "593962325369"; // Tu número sin +, con código de país (Ej: Ecuador es 593)
-               const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+               const texto = `Hola soy ${nombre}, visité tu página y ordeno ${mensaje}.`;
+               const url = `https://wa.me/593962325369?text=${encodeURIComponent(texto)}`;
                window.open(url, '_blank');
             } else {
                alert("Por favor llena tu nombre y mensaje antes de enviar.");
             }
          });
-         </script>
+      </script>
+      
+         
          
    </body>
    

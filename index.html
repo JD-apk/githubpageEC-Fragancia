@@ -452,21 +452,21 @@
 
    
       <script>
-         function enviarWhatsapp() {
-            var nombre = document.getElementById("nombre").value.trim();
-            var mensaje = document.getElementById("mensaje").value.trim();
-      
+         document.querySelector('.send_btn').addEventListener('click', function(e) {
+            e.preventDefault(); // Previene el envío normal del formulario
+         
+            const nombre = document.querySelector('input[name="Name"]').value.trim();
+            const mensaje = document.querySelector('input[placeholder="Mensaje"]').value.trim();
+         
             if (nombre && mensaje) {
-               var texto = "Hola, soy " + encodeURIComponent(nombre) + ". " + 
-                           "Visite tu sitio y ordeno: " + encodeURIComponent(mensaje);
-               var numero = "+593962325369"; // 👉 Reemplázalo si necesitas otro número
-               var url = "https://wa.me/" + numero + "?text=" + texto;
-               window.open(url, "_blank");
+               const texto = `Hola soy ${nombre}, visité tu página y ordeno ${mensaje}.`;
+               const url = `https://wa.me/593962325369?text=${encodeURIComponent(texto)}`;
+               window.open(url, '_blank');
             } else {
-               alert("Por favor, ingresa tu nombre y mensaje.");
+               alert("Por favor llena tu nombre y mensaje antes de enviar.");
             }
-         }
-      </script>
+         });
+         </script>         
       
    </body>
 </html>
